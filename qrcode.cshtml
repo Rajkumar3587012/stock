@@ -1,0 +1,48 @@
+﻿<style>
+    .required:after {
+        content: "  *";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+@{
+    Layout = null;
+}
+@model List<stockManagement.Models.qrdata>
+<head>
+    <link rel="stylesheet" href="~/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body>
+  
+
+    <!-- Main content -->
+    <section  style="padding:20px;">
+        <div  style=" width: 100%;
+                height: 100%;
+               float: left;">
+            @foreach (var itm in Model)
+            {
+                <div style="width:270px;float: left; margin-left:8px;">
+                    <div class="panel panel-primary text-center">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(itm.qrdt)" alt="@itm.name" height="260" width="260">
+                        <h3>@itm.name</h3>
+                        <p class="title">@itm.type</p>
+                        <p>Rs.  @itm.mrp /-</p>
+
+
+                    </div>
+                </div>
+
+            }
+
+        </div>
+
+
+
+    </section>
+</body>

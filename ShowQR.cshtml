@@ -1,0 +1,38 @@
+﻿@{
+
+}
+@model stockManagement.Models.qrdata
+<div class="row" id='DivIdToPrint'>
+    <div style="width: 100%;
+    padding: 10px;
+   
+    text-align: center;
+    margin: 0 auto;
+   
+    color: #000;">
+        <img src="data:image/png;base64,@Convert.ToBase64String(Model.qrdt)" alt="@Model.name" height="260" width="260">
+        <h3>@Model.name</h3>
+        <p class="title">@Model.type</p>
+        <p>Rs.  @Model.mrp /-</p>
+        <p><a class="btn btn-primary" onclick='printDiv();'>Download</a></p>
+
+    </div>
+</div>
+<script>
+    function printDiv() 
+{
+
+  var divToPrint=document.getElementById('DivIdToPrint');
+
+  var newWin=window.open('','Print-Window');
+
+  newWin.document.open();
+
+  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+  newWin.document.close();
+
+  setTimeout(function(){newWin.close();},10);
+
+}
+</script>

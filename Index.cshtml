@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.title = "Dashboard";
+}
+
+<script src="~/dist/js/pages/dashboard.js"></script>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Dashboard
+        
+    </h1>
+    <ol class="breadcrumb">
+        
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Small boxes (Stat box) -->
+    @if (ViewBag.minalrt != "")
+    {
+        <div class="row">
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <span class="label label-danger" style="padding:20px;">@ViewBag.minalrt   <a class="btn btn-default">View More</a></span>
+            </div>
+            <div class="col-md-4"></div>
+
+
+
+
+        </div>
+    }
+   <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="background-color:#ecb419;padding:20px;">
+                            <div>
+                                <div class="row">
+
+                                   
+                                    <div class="col-md-12 col-sm-12 text-center">
+                                                 <h2 class="card-title">New Sales</h2>
+                                        <a href="/Home/NewSales" class="btn btn-default btn-block btn-md">  Go To Sales  </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="background-color:#ecb419;padding:20px;">
+                            <div class="card-block">
+                                <div class="row">
+
+                                   
+                                    <div class="col-md-12 col-sm-12 text-center">
+                                            <h2 class="card-title">New Purchase</h2>
+                                        <a href="/Home/NewPurchase" class="btn btn-default btn-block btn-md"> Go To Purchase  </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+        <!-- ./col -->
+    </div>
+   
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+<script> var sts = '@ViewBag.sts';
+    $(document).ready(function () {
+        if (sts != "") {
+           var x = document.getElementById("snackbar");
+            x.innerHTML = sts;
+            if (sts.includes("Successfully")) {
+                x.style.backgroundColor = "#4BB543";
+            }
+            else {
+                x.style.backgroundColor = "#ff0011";
+            }
+            
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 6000);
+        }
+    });</script>
