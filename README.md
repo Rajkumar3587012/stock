@@ -1,2 +1,2 @@
-# stock
-auto billing
+# KiranaProductBilling
+automatic billing system by using image processing
